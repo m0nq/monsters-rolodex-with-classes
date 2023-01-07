@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+import { useCallback } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './App.css';
@@ -19,14 +21,16 @@ const App = () => {
         })();
     }, []);
 
-    const onSearchChange = event => {
+    const onSearchChange = useCallback(event => {
         const searchField = event.target.value.toLocaleLowerCase();
         setSearchField(searchField);
-    };
+    }, []);
 
-    const filteredMonsters = monsters.filter(monster => {
-        return monster.name.toLocaleLowerCase().includes(searchField);
-    });
+    const filteredMonsters = useMemo(() => {
+        return monsters.filter(monster => {
+            return monster.name.toLocaleLowerCase().includes(searchField);
+        });
+    }, [monsters, searchField]);
 
     return (
         <div className="App">
