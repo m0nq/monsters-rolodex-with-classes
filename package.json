@@ -1,9 +1,9 @@
 {
-  "name": "monsters-rolodex-with-classes",
+  "name": "monsters-rolodex",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start -p 2001",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
